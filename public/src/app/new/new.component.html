@@ -1,0 +1,38 @@
+<main>
+    <section>
+        <div class="error">
+            {{errorMessage}}
+        </div>
+        <div>
+            <h2>Create a New Note:</h2>
+            <form (submit)="createNote($event)">
+                <label for="note">Note:</label>
+                <input type="text" name="note" id="note" [(ngModel)]="newNote.note" >
+                <button class="button" type="submit">Submit</button>
+    
+            </form>
+        </div>
+    </section>
+    <section class="tableSec">
+        <table>
+            <caption>Note List:</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Note</th>
+                    <th scope="col">Created</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let element of allNotes">
+                    <td class="b1"  >
+                        {{ element.note }}
+                    </td>
+                    <td class="b1"  >
+                        {{ element.createdAt | date:'medium' }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
